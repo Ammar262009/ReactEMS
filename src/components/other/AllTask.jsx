@@ -1,33 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../context/AuthProvider'
+import AllTaskCard from './AllTaskCard'
 
 const AllTask = () => {
+    const data = useContext(AuthContext)
+    const employeeData = data.employeeData
+    console.log(data);
+    
   return (
     <div className='bg-[#1c1c1c] p-5 mt-5 rounded h-46 overflow-auto'>
-        <div className='bg-red-400 rounded py-2 px-4 flex justify-between mb-2'>
-            <h2>Ammar</h2>
-            <h3>Make a Ui Design</h3>
-            <h5>Status</h5>
-        </div>
-        <div className='bg-green-400 rounded py-2 px-4 flex justify-between mb-2'>
-            <h2>Ammar</h2>
-            <h3>Make a Ui Design</h3>
-            <h5>Status</h5>
-        </div>
-        <div className='bg-blue-400 rounded py-2 px-4 flex justify-between mb-2'>
-            <h2>Ammar</h2>
-            <h3>Make a Ui Design</h3>
-            <h5>Status</h5>
-        </div>
-        <div className='bg-amber-400 rounded py-2 px-4 flex justify-between mb-2'>
-            <h2>Ammar</h2>
-            <h3>Make a Ui Design</h3>
-            <h5>Status</h5>
-        </div>
-        <div className='bg-purple-400 rounded py-2 px-4 flex justify-between mb-2'>
-            <h2>Ammar</h2>
-            <h3>Make a Ui Design</h3>
-            <h5>Status</h5>
-        </div>
+        {employeeData.map((e,idx)=>{
+            return <AllTaskCard key={idx} id={idx} firstName={e.firstName} taskCount={e.tasks} email={e.email} />
+        })}
+        
     </div>
   )
 }

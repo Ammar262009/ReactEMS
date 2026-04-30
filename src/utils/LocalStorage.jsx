@@ -1,8 +1,15 @@
 const employees = [
   {
     id: 1,
+    firstName: "Amit",
     email: "employee1@example.com",
     password: "emp1pass",
+    tasksCount: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         title: "Prepare report",
@@ -38,8 +45,15 @@ const employees = [
   },
   {
     id: 2,
+    firstName: "Neha",
     email: "employee2@example.com",
     password: "emp2pass",
+    tasksCount: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         title: "Design homepage",
@@ -85,8 +99,15 @@ const employees = [
   },
   {
     id: 3,
+    firstName: "Rahul",
     email: "employee3@example.com",
     password: "emp3pass",
+    tasksCount: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         title: "API integration",
@@ -122,8 +143,15 @@ const employees = [
   },
   {
     id: 4,
+    firstName: "Sneha",
     email: "employee4@example.com",
     password: "emp4pass",
+    tasksCount: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         title: "Test features",
@@ -169,8 +197,15 @@ const employees = [
   },
   {
     id: 5,
+    firstName: "Karan",
     email: "employee5@example.com",
     password: "emp5pass",
+    tasksCount: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         title: "Content writing",
@@ -217,17 +252,17 @@ const employees = [
 ]
 const admin = {
     "id": 100,
-    "email": "admin@example.com",
-    "password": "adminpass"
+    "email": "ammar@gmail.com",
+    "password": "ammar@1"
 }
 
 export const setLocalStorage = () => {
     localStorage.setItem('employees', JSON.stringify(employees))
     localStorage.setItem('admin', JSON.stringify(admin))
+
 }
 export const getLocalStorage = () => {
     let employeeData = JSON.parse(localStorage.getItem('employees'))
-    console.log(employeeData)
     let adminData = JSON.parse(localStorage.getItem('admin'))
-    console.log(adminData)
+    return{employeeData, adminData}
 }
